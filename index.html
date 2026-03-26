@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Mirhan Emlak | Kocaeli Lüks Konut ve Yatırım Danışmanlığı</title>
+    <meta name="description" content="Kocaeli ve Çayırova bölgesinde satılık daire, arsa ve kiralık lüks konutlar. Mirhan Emlak güvencesiyle profesyonel gayrimenkul danışmanlığı.">
+    <meta name="keywords" content="kocaeli emlak, çayırova satılık daire, mirhan emlak, kiralık ev, arsa yatırımı, gayrimenkul danışmanı">
+    <meta name="author" content="Mirhan Emlak">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mirhan Emlak | Profesyonel Doğru Referans">
+    <meta property="og:description" content="Hayalinizdeki eve veya en kârlı yatırıma Mirhan Emlak ile ulaşın. Güncel portföyümüzü hemen inceleyin.">
+
+    <link rel="icon" type="image/png" href="resimler/Gemini_Generated_Image_uovg7wuovg7wuovg.ico">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400&family=Urbanist:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ================= DARK THEME DEĞİŞKENLERİ ================= */
+        :root {
+            --bg-dark: #121212; 
+            --bg-darker: #0a0a0a; 
+            --bg-card: #1E1E1E; 
+            --accent: #F5A623; 
+            --accent-hover: #D08B1B;
+            --text-light: #E0E0E0; 
+            --text-muted: #A0A0A0; 
+            --border-color: #333333;
+            --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.5);
+            --shadow-neon: 0 8px 32px rgba(245, 166, 35, 0.15); 
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif; 
+            font-weight: 300;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6, .nav-links a { font-family: 'Urbanist', sans-serif; }
+
+        /* ================= NAVBAR ================= */
+        .navbar-wrapper {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: transparent; 
+            transition: var(--transition);
+        }
+        
+        .navbar-wrapper.scrolled {
+            background: rgba(10, 10, 10, 0.95); 
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        }
+
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 2% 5%; max-width: 1400px; margin: 0 auto; }
+        .logo-container { display: flex; align-items: center; }
+        
+        .site-logo { height: 75px; width: auto; transition: var(--transition); border-radius: 4px; }
+        .site-logo:hover { transform: scale(1.05); }
+
+        .nav-links { list-style: none; display: flex; align-items: center; gap: 30px; }
+        .nav-links li a { color: var(--text-light); text-decoration: none; font-size: 16px; font-weight: 600; transition: var(--transition); position: relative; }
+        .nav-links li a:hover { color: var(--accent); }
+        .nav-links li a:not(.nav-btn)::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background-color: var(--accent); transition: var(--transition); }
+        .nav-links li a:not(.nav-btn):hover::after { width: 100%; }
+
+        .nav-btn { background: var(--accent); color: #000 !important; padding: 10px 24px; border-radius: 4px; font-weight: 700 !important; box-shadow: 0 4px 15px rgba(245, 166, 35, 0.3); }
+        .nav-btn:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: var(--shadow-neon); }
+
+        #menu-toggle, .hamburger { display: none; }
+
+        /* ================= ANİMASYON KEYFRAME ================= */
+        @keyframes sagdanSolaKay {
+            0% { opacity: 0; transform: translateX(100px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        /* ================= TÜM KART/İÇERİK ANİMASYONLARI ================= */
+        .hero-content h1, .hero-content h2, .hero-content p, .hero-content .hero-btn,
+        .portfolio-card, .dark-box, .accordion-item, .sell-container > div, .sahibinden-btn-container {
+            opacity: 0; 
+        }
+
+        .hero-content.animate h1, .hero-content.animate h2, .hero-content.animate p, .hero-content.animate .hero-btn,
+        .portfolio-card.animate, .dark-box.animate, .accordion-item.animate, .sell-container > div.animate, .sahibinden-btn-container.animate {
+            animation: sagdanSolaKay 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+        }
+
+        .hero-content.animate h1 { animation-delay: 0.2s; }
+        .hero-content.animate h2 { animation-delay: 0.4s; }
+        .hero-content.animate p { animation-delay: 0.6s; }
+        .hero-content.animate .hero-btn { animation-delay: 0.8s; }
+
+        /* ================= HERO SECTION ================= */
+        .hero { position: relative; height: 80vh; display: flex; align-items: center; padding: 75px 2% 0 10%; overflow: hidden; }
+
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center; z-index: -2;
+            opacity: 0; transform: scale(1); transition: opacity 2s ease-in-out, transform 8s linear; 
+        }
+
+        .bg-1 { background-image: url('resimler/Gemini_Generated_Image_nxj8oenxj8oenxj8.png'); }
+        .bg-2 { background-image: url('resimler/Gemini_Generated_Image_orumx3orumx3orum.png'); }
+
+        .hero-bg.active { opacity: 1; transform: scale(1.1); }
+
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to right, rgba(18, 18, 18, 0.9) 0%, rgba(18, 18, 18, 0.4) 100%); z-index: -1;
+        }
+
+        .hero-content { max-width: 600px; }
+        .hero h1 { font-size: clamp(3rem, 5vw, 4.5rem); font-weight: 800; color: #FFF; line-height: 1.1; margin-bottom: 20px; }
+        .hero h2 { font-family: 'Dancing Script', cursive; font-size: clamp(2.5rem, 4vw, 3.5rem); color: var(--accent); text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-top: 10px; margin-bottom: 20px; }
+        .hero h1 span { color: var(--accent); }
+        .hero p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; }
+        .hero-btn { display: inline-block; padding: 15px 35px; background: transparent; color: var(--accent); border: 2px solid var(--accent); border-radius: 4px; font-weight: 700; font-size: 1.1rem; text-decoration: none; transition: var(--transition); text-transform: uppercase; letter-spacing: 1px; }
+        .hero-btn:hover { background: var(--accent); color: #000; box-shadow: var(--shadow-neon); }
+
+        /* ================= ORTAK BÖLÜMLER ================= */
+        section { padding: 100px 5%; max-width: 1400px; margin: 0 auto; }
+        .section-title { font-size: 2.5rem; color: #FFF; font-weight: 800; margin-bottom: 10px; display: flex; align-items: center; gap: 15px; }
+        .section-title::before { content: ''; display: inline-block; width: 40px; height: 4px; background: var(--accent); }
+        .section-subtitle { color: var(--text-muted); font-size: 1rem; margin-bottom: 50px; }
+
+        .dark-box { background: var(--bg-card); padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); box-shadow: var(--shadow-subtle); transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; }
+        .dark-box:hover { box-shadow: var(--shadow-neon); border-color: rgba(245, 166, 35, 0.3); transform: translateY(-5px); }
+        .dark-box h3 { color: var(--accent); margin-bottom: 15px; font-size: 1.4rem; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+
+        /* ================= İLAN KARTLARI ================= */
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+        .portfolio-card { background: var(--bg-card); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-subtle); border: 1px solid rgba(255, 255, 255, 0.05); transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; display: flex; flex-direction: column; }
+        .portfolio-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-neon); border-color: rgba(245, 166, 35, 0.3); }
+        .card-img-wrapper { position: relative; height: 260px; overflow: hidden; background: #121212; }
+        .card-badge { position: absolute; top: 15px; left: 15px; background: var(--accent); color: #000; padding: 5px 12px; font-family: 'Urbanist', sans-serif; font-weight: 700; font-size: 0.8rem; border-radius: 4px; text-transform: uppercase; box-shadow: 0 4px 10px rgba(0,0,0,0.5); z-index: 20; }
+        .card-content { padding: 25px 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .card-price { font-family: 'Urbanist', sans-serif; color: var(--accent); font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; }
+        .card-title { color: #FFF; font-size: 1.2rem; margin-bottom: 10px; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .card-title:hover { color: var(--accent); }
+        .card-location { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; }
+        .card-features { display: flex; gap: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 15px; margin-top: auto; color: var(--text-light); font-size: 0.9rem; margin-bottom: 15px; }
+        .card-features span i { color: var(--accent); margin-right: 5px; }
+        .card-btn { background: transparent; color: var(--accent); border: 1px solid var(--accent); padding: 8px 15px; border-radius: 4px; text-decoration: none; font-weight: 600; text-align: center; transition: var(--transition); }
+        .card-btn:hover { background: var(--accent); color: #000; }
+
+        /* ================= DİĞER BÖLÜMLER ================= */
+        .sell-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
+        .sell-form input, .sell-form select, .sell-form textarea { width: 100%; padding: 15px; margin-bottom: 15px; background: var(--bg-dark); border: 1px solid var(--border-color); color: #fff; border-radius: 4px; font-family: 'Poppins', sans-serif; }
+        .sell-form input:focus, .sell-form select:focus, .sell-form textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 8px rgba(245, 166, 35, 0.3); }
+
+        .accordion-item { background: var(--bg-card); margin-bottom: 15px; border: 1px solid var(--border-color); border-radius: 8px; }
+        .accordion-header { width: 100%; padding: 20px; text-align: left; background: transparent; border: none; color: #FFF; font-family: 'Urbanist', sans-serif; font-size: 1.1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; transition: var(--transition); }
+        .accordion-header:hover { color: var(--accent); }
+        .accordion-content { padding: 0 20px; color: var(--text-muted); display: none; padding-bottom: 20px; }
+
+        .whatsapp-fixed { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; padding: 15px 20px; border-radius: 50px; display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: bold; z-index: 1000; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); transition: transform 0.3s; }
+        .whatsapp-fixed:hover { transform: scale(1.05); color: white;}
+
+        .slide-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer; z-index: 5; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+        .slide-btn:hover { background: var(--accent); color: black; }
+        .slide-btn.left { left: 10px; }
+        .slide-btn.right { right: 10px; }
+
+        .site-footer { position: relative; padding: 80px 5% 30px 5%; margin-top: 80px; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.05); z-index: 1; }
+        .site-footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('resimler/Gemini_Generated_Image_nxj8oenxj8oenxj8.png'); background-size: cover; background-position: center; z-index: -2; border-radius: 40px 40px 0 0; }
+        .footer-content { max-width: 1400px; margin: 0 auto; position: relative; z-index: 2; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; background: rgba(30, 30, 30, 0.7); padding: 50px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.5); backdrop-filter: blur(5px); }
+        .footer-bottom-bar { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 0.9rem; color: #d1d1d1; }
+
+        @media screen and (max-width: 992px) {
+            .sell-container { grid-template-columns: 1fr; }
+        }
+        
+        /* ================= MOBİL UYUM ================= */
+        @media screen and (max-width: 768px) {
+            .hamburger { display: block; font-size: 28px; cursor: pointer; color: var(--accent); }
+            
+            .nav-links { 
+                display: none; flex-direction: column; position: absolute; top: 100%; left: 0; 
+                width: 100%; background: rgba(10, 10, 10, 0.98); padding: 10px 0 20px 0; 
+                text-align: center; border-bottom: 2px solid var(--accent); 
+                box-shadow: 0 10px 30px rgba(0,0,0,0.8); 
+            }
+            #menu-toggle:checked ~ .nav-links { display: flex; }
+            .nav-links li { width: 100%; padding: 15px 0; }
+            .nav-links li a.nav-btn { display: inline-block; width: auto; }
+
+            .hero { text-align: center; padding: 100px 5% 0 5%; justify-content: center; }
+            .hero-content { margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center; }
+            .hero-content h1, .hero-content h2, .hero-content p { text-align: center; width: 100%; }
+            
+            .section-title { font-size: 2rem; justify-content: center; }
+            .section-title::before { display: none; }
+            .section-subtitle { text-align: center; }
+            
+            .whatsapp-fixed span { display: none; }
+            .whatsapp-fixed { padding: 15px; border-radius: 50%; }
+            .footer-grid { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar-wrapper">
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+                    <img src="resimler/Gemini_Generated_Image_uovg7wuovg7wuovg-removebg-preview.png" alt="Mirhan Emlak Logosu" class="site-logo">
+                </a>
+            </div>
+            
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger"><i class="fas fa-bars"></i></label>
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="#portfoy">İlanlar</a></li> 
+                <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+                <li><a href="ekibimiz.html">Ekibimiz</a></li>
+                <li><a href="#sss">SSS</a></li>
+                <li><a href="#mulk-sat" class="nav-btn">Mülk Sat</a></li>
+                <li><a href="admin.html"><i class="fas fa-user-shield"></i> Yönetici</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="hero">
+        <div class="hero-bg bg-1 active"></div>
+        <div class="hero-bg bg-2"></div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <h1>Geleceğinize <span>Değer</span> Katın.</h1>
+            <h2>"Profesyonel Doğru Referans"</h2>
+            <p><span style="color: var(--accent); font-weight: 600;">Geniş</span> gayrimenkul portföyümüz ve profesyonel danışmanlık hizmetimizle, Kocaeli'de hayalinizdeki yaşam alanını veya en kârlı yatırımı bulmanızı sağlıyoruz.</p>
+            <a href="#portfoy" class="hero-btn">Portföyü İncele</a>
+        </div>
+    </div>
+
+    <section id="portfoy">
+        <h2 class="section-title">Öne Çıkan İlanlar</h2>
+        <p class="section-subtitle">Urbanist & Poppins tipografisi ile tasarlanmış güncel portföyümüz.</p>
+        <div id="anaSayfaIlanlar" class="portfolio-grid">
+            <div style="text-align: center; grid-column: 1/-1; padding: 40px; color: var(--text-muted);">
+                İlanlar yükleniyor... <i class="fas fa-spinner fa-spin"></i>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding-top: 0;"> 
+        <div class="sahibinden-btn-container" style="display: flex; flex-direction: column; gap: 20px;">
+            <a href="https://mirhanemlakinsaat.sahibinden.com" target="_blank" style="background: #FFDE00; color: #121212; padding: 20px; border-radius: 12px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 15px; font-weight: bold; font-family: 'Urbanist', sans-serif; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(255, 222, 0, 0.2); transition: transform 0.3s, box-shadow 0.3s;">
+                <i class="fas fa-handshake" style="font-size: 1.5rem;"></i> Sahibinden Mağazamızdaki İlanları Gör
+            </a>
+        </div>
+    </section>
+
+    <section id="iletisim">
+        <h2 class="section-title">Bize Ulaşın</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="dark-box">
+                    <h3><i class="fas fa-address-card"></i> İletişim Bilgileri</h3>
+                    <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;">
+                        <i class="fas fa-map-marker-alt" style="color: var(--accent); font-size: 1.5rem; margin-top: 5px;"></i>
+                        <div>
+                            <h4 style="margin: 0 0 5px 0; color: #fff;">Adres</h4>
+                            <p style="margin: 0; color: var(--text-muted); line-height: 1.5;">Çayırova, 5206. Sk. no:76/A<br>41400 Çayırova / Kocaeli</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;">
+                        <i class="fas fa-phone-alt" style="color: var(--accent); font-size: 1.5rem; margin-top: 5px;"></i>
+                        <div>
+                            <h4 style="margin: 0 0 5px 0; color: #fff;">Telefon</h4>
+                            <p style="margin: 0;"><a href="tel:+905365515673" style="color: var(--text-light); text-decoration: none; font-weight: bold;">+90 536 551 56 73</a></p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 15px; margin-top: 30px;">
+                        <a href="https://instagram.com/mirhanemlak" target="_blank" style="background: #e1306c; color: white; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none; font-size: 1.2rem; transition: transform 0.3s;"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com/mirhanemlak" target="_blank" style="background: #1877f2; color: white; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none; font-size: 1.2rem; transition: transform 0.3s;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/905365515673" target="_blank" style="background: #25d366; color: white; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none; font-size: 1.2rem; transition: transform 0.3s;"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="dark-box">
+                    <h3><i class="fas fa-clock"></i> Çalışma Saatleri</h3>
+                    <table style="width: 100%; border-collapse: collapse; color: var(--text-light);">
+                        <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 10px 0;">Pazartesi - Cuma</td><td style="text-align: right; font-weight: bold;">09:00 - 20:00</td></tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 10px 0;">Cumartesi</td><td style="text-align: right; font-weight: bold;">09:00 - 20:00</td></tr>
+                        <tr><td style="padding: 10px 0; color: var(--accent); font-weight: bold;">Pazar</td><td style="text-align: right; font-weight: bold; color: var(--accent);">11:00 - 19:00</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="dark-box" style="padding: 10px; height: 100%; min-height: 350px;">
+                    <iframe 
+                        src="https://maps.google.com/maps?q=MİRHAN+EMLAK,+Çayırova,+5206.+Sk.+no:76/A,+41400+Çayırova/Kocaeli&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; border-radius: 8px; min-height: 330px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sss">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h2 class="section-title">Sıkça Sorulan Sorular</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">
+                        Emlak komisyonu yasal olarak ne kadardır?
+                        <i class="fas fa-chevron-down" style="color: var(--accent);"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Taşınmaz Ticareti Hakkında Yönetmelik gereğince emlak komisyonu, satış bedeli üzerinden %2 + KDV alıcıdan, %2 + KDV satıcıdan olmak üzere toplam %4 + KDV olarak tahsil edilir.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">
+                        Kira beyanını ne zaman vermeliyim?
+                        <i class="fas fa-chevron-down" style="color: var(--accent);"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Her yıl mart ayında beyan verme sistemi üzerinden beyan verilecektir. Tutar 2 taksit şeklinde ödenebilmekte; 1. taksit 31 Mart'a kadar, 2. taksit 31 Temmuz'a kadar ilgili devlet bankaları ya da İVD üzerinden ödenmektedir. </p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">
+                        Gayrimenkulümü satmak veya kiralamak için ne yapmalıyım?
+                        <i class="fas fa-chevron-down" style="color: var(--accent);"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Web sitemizdeki "Mülk Sat" butonuna tıklayarak mülkünüzün detaylarını ve fiyat bilgilerini ilgili formdan doldurabilirsiniz. Danışmanlarımız kısa süre içinde ilanınızı onaylamak için sizinle iletişime geçecektir.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">
+                        Sahibinden.com ilan yayınlama izni nasıl verebilirim?
+                        <i class="fas fa-chevron-down" style="color: var(--accent);"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Sahibinden ilan yayınlama izni (EİDS), 15 Şubat 2026 itibarıyla zorunlu olan Elektronik İlan Doğrulama Sistemi kapsamında e-Devlet üzerinden alınır. Gayrimenkul sahipleri, e-Devlet'te “EİDS Taşınmaz/Taşıt İlanı Yetkilendirme İşlemleri” hizmetini tıklayarak yetki belge no: 4106601 Mirhan Emlak girdikten sonra süre seçimi yapıp gayrimenkul için ilan izni verebilir. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mulk-sat">
+        <h2 class="section-title">Mülkünüzü Satalım</h2>
+        <div class="sell-container">
+            <div>
+                <h2 style="color: #fff; margin-bottom: 15px; font-family: 'Urbanist', sans-serif;">Mirhan Güvencesiyle Değerinde Satış</h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">Evinizi veya arsanızı en kısa sürede nakde çevirmek için formu doldurun.</p>
+                <ul style="list-style: none; color: var(--text-light); font-size: 0.95rem;">
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--accent);"></i> Ücretsiz Ekspertiz</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--accent);"></i> Profesyonel Fotoğraflama</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--accent);"></i> Geniş İlan Ağı</li>
+                </ul>
+            </div>
+            
+            <div class="sell-form">
+                <form action="https://formspree.io/f/xaqpggbg" method="POST">
+                    <input type="text" name="Ad_Soyad" placeholder="Adınız Soyadınız" required>
+                    <input type="tel" name="Telefon" placeholder="Telefon Numaranız" required>
+                    <select name="Mulk_Tipi" required>
+                        <option value="" disabled selected hidden>Mülk Tipi Seçin</option>
+                        <option value="Daire">Daire</option>
+                        <option value="Villa">Villa / Müstakil</option>
+                        <option value="Arsa">Arsa / Arazi</option>
+                        <option value="Is_Yeri">İş Yeri</option>
+                    </select>
+                    <textarea name="Bilgi" rows="4" placeholder="Mülkünüz hakkında kısa bilgi..."></textarea>
+                    
+                    <div style="display: flex; align-items: flex-start; gap: 12px; margin: 10px 0 25px 0; background: rgba(255,255,255,0.03); padding: 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05);">
+                        <input type="checkbox" id="kvkk_checkbox" name="KVKK_Onayi" required style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--accent); margin-top: 3px;">
+                        <label for="kvkk_checkbox" style="font-size: 0.85rem; color: var(--text-muted); cursor: pointer; line-height: 1.5; user-select: none;">
+                            <span style="color: var(--accent); font-weight: 600;">KVKK Aydınlatma Metni</span> kapsamında kişisel verilerimin işlenmesini ve tarafımla iletişime geçilmesini kabul ediyorum.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="nav-btn" style="width: 100%; border:none; cursor: pointer; padding: 15px; font-size: 1.1rem;">Başvuruyu Gönder</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/905365515673" class="whatsapp-fixed" target="_blank">
+        <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i>
+        <span>Hızlı Bilgi Al</span>
+    </a>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAaZSH9hk7UnQl9vgd8tMUQOKwn4ZkgiGc",
+            authDomain: "mirhanemlak-8e1cc.firebaseapp.com",
+            databaseURL: "https://mirhanemlak-8e1cc-default-rtdb.firebaseio.com",
+            projectId: "mirhanemlak-8e1cc",
+            storageBucket: "mirhanemlak-8e1cc.firebasestorage.app",
+            messagingSenderId: "717428403347",
+            appId: "1:717428403347:web:031d290fcda34f8bcd7166",
+            measurementId: "G-0DZL6PE6X2"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        window.aktifIlanlar = [];
+        window.otomatikKaydiricilar = [];
+
+        // --- KESİŞİM GÖZLEMCİSİ (SAYFA KAYDIRMA ANİMASYONLARI) ---
+        const scrollGozlemci = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                } else {
+                    entry.target.classList.remove('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // İlan kartları ve footer HARİÇ diğer tüm statik elementleri gözlemle
+        document.addEventListener('DOMContentLoaded', () => {
+            const statikAnimasyonlular = document.querySelectorAll('.hero-content, .dark-box, .accordion-item, .sell-container > div, .sahibinden-btn-container');
+            
+            statikAnimasyonlular.forEach((eleman, index) => {
+                if (!eleman.classList.contains('hero-content')) {
+                    const gecikmeSaniyesi = (0.1 + ((index % 4) * 0.15)).toFixed(2);
+                    eleman.style.animationDelay = `${gecikmeSaniyesi}s`;
+                }
+                scrollGozlemci.observe(eleman);
+            });
+        });
+
+        // Firebase'den Verileri Dinle
+        const ilanlarRef = ref(db, 'ilanlar/');
+        onValue(ilanlarRef, (snapshot) => {
+            const data = snapshot.val();
+            window.aktifIlanlar = data ? Object.values(data) : [];
+            window.aktifIlanlar.sort((a, b) => b.id - a.id);
+            anaSayfaIlanlariniYukle();
+        });
+
+        function anaSayfaIlanlariniYukle() {
+            const ilanKutusu = document.getElementById('anaSayfaIlanlar');
+            window.otomatikKaydiricilar.forEach(clearInterval);
+            window.otomatikKaydiricilar = [];
+
+            if (window.aktifIlanlar.length === 0) {
+                ilanKutusu.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 60px; color: var(--text-muted); font-size: 1.2rem;">Şu an aktif ilanımız bulunmamaktadır.</div>`;
+                return;
+            }
+
+            ilanKutusu.innerHTML = window.aktifIlanlar.map(ilan => {
+                let resimGosterimi = "";
+                if (ilan.resimler && ilan.resimler.length > 0) {
+                    const oklar = ilan.resimler.length > 1 ? `
+                        <button onclick="resimKaydir(event, ${ilan.id}, -1)" class="slide-btn left">❮</button>
+                        <button onclick="resimKaydir(event, ${ilan.id}, 1)" class="slide-btn right">❯</button>
+                    ` : '';
+                    resimGosterimi = `
+                        <div id="slides-container-${ilan.id}" class="slides-container" style="display: flex; width: ${ilan.resimler.length * 100}%; height: 100%; transition: transform 0.5s;">
+                            ${ilan.resimler.map(resim => `<img src="${resim}" style="width: ${100 / ilan.resimler.length}%; height: 100%; object-fit: cover;">`).join('')}
+                        </div>
+                        ${oklar}`;
+                } else {
+                     resimGosterimi = `<div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #121212; border: 1px dashed #333;"><i class="fas fa-home" style="font-size: 3rem; color: #333;"></i></div>`;
+                }
+
+                return `
+                <div class="portfolio-card" data-index="0">
+                    <div class="card-img-wrapper" style="position:relative; height:260px; overflow:hidden;">
+                        ${resimGosterimi}
+                        <span class="card-badge">${ilan.tip.toUpperCase()}</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-price">${Number(ilan.fiyat).toLocaleString('tr-TR')} ₺</div>
+                        <h4 class="card-title" title="${ilan.baslik}">${ilan.baslik}</h4>
+                        <p class="card-location"><i class="fas fa-map-marker-alt"></i> ${ilan.konum}</p>
+                        <div class="card-features">
+                            <span><i class="fas fa-bed"></i> ${ilan.oda}</span>
+                            <span><i class="fas fa-ruler-combined"></i> ${ilan.metrekare} m²</span>
+                        </div>
+                        <a href="${ilan.sahibindenLink || '#'}" target="_blank" class="card-btn" style="margin-top:15px; display:block; text-align:center;">Detayları İncele</a>
+                    </div>
+                </div>`;
+            }).join('');
+
+            // İlan Kartlarını Animasyon İçin Gözlemlemeye Başla
+            const kartlar = ilanKutusu.querySelectorAll('.portfolio-card');
+            const anaGecikme = 0.1; 
+            const kartlarArasiGecikme = 0.15; 
+
+            kartlar.forEach((kart, index) => {
+                const gecikmeSaniyesi = (anaGecikme + ((index % 4) * kartlarArasiGecikme)).toFixed(2);
+                kart.style.animationDelay = `${gecikmeSaniyesi}s`;
+                scrollGozlemci.observe(kart);
+            });
+
+            // Birden fazla fotoğraf varsa otomatik kaydır
+            window.aktifIlanlar.forEach(ilan => {
+                if (ilan.resimler && ilan.resimler.length > 1) {
+                    const intervalId = setInterval(() => {
+                        window.resimKaydir(null, ilan.id, 1);
+                    }, 4000); // 4 saniyede bir değiştir
+                    window.otomatikKaydiricilar.push(intervalId);
+                }
+            });
+        }
+
+        window.resimKaydir = function(event, ilanId, yon) {
+            if (event) { event.preventDefault(); event.stopPropagation(); }
+            const container = document.getElementById(`slides-container-${ilanId}`);
+            if(!container) return;
+            const card = container.closest('.portfolio-card');
+            const ilan = window.aktifIlanlar.find(i => i.id === ilanId);
+            let index = parseInt(card.getAttribute('data-index')) + yon;
+            if (index < 0) index = ilan.resimler.length - 1;
+            if (index >= ilan.resimler.length) index = 0;
+            container.style.transform = `translateX(-${index * (100 / ilan.resimler.length)}%)`;
+            card.setAttribute('data-index', index);
+        }
+    </script>
+    
+    <script>
+        if (history.scrollRestoration) { history.scrollRestoration = 'manual'; }
+        window.scrollTo(0, 0);
+
+        // Hero Arka Plan Slider
+        document.addEventListener('DOMContentLoaded', function() {
+            const bg1 = document.querySelector('.bg-1');
+            const bg2 = document.querySelector('.bg-2');
+            let isBg1Active = true;
+
+            setInterval(() => {
+                if (isBg1Active) {
+                    bg1.classList.remove('active');
+                    bg2.classList.add('active');
+                } else {
+                    bg2.classList.remove('active');
+                    bg1.classList.add('active');
+                }
+                isBg1Active = !isBg1Active;
+            }, 6000); 
+        });
+
+        // Navbar Scroll Efekti
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar-wrapper');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobil Menüyü Tıklayınca Otomatik Kapatma
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        menuToggle.checked = false;
+                    }
+                });
+            });
+        });
+    </script>
+
+    <footer class="site-footer" style="padding-bottom: 0;">
+        <div class="footer-content" style="padding-bottom: 40px;">
+            <div class="footer-grid">
+                <div>
+                    <h4 style="color: #fff; margin-bottom: 20px; font-family: 'Urbanist', sans-serif;">Kurumsal</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 10px;">
+                            <a href="index.html" style="color: var(--text-muted); text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+                                <i class="fas fa-angle-right" style="color: var(--accent); font-size: 0.8rem; margin-right: 5px;"></i> Ana Sayfa
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a href="hakkimizda.html" style="color: var(--text-muted); text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+                                <i class="fas fa-angle-right" style="color: var(--accent); font-size: 0.8rem; margin-right: 5px;"></i> Hakkımızda
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a href="#sss" style="color: var(--text-muted); text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+                                <i class="fas fa-angle-right" style="color: var(--accent); font-size: 0.8rem; margin-right: 5px;"></i> S.S.S.
+                            </a>
+                        </li>
+                        <li>
+                            <a href="admin.html" style="color: var(--text-muted); text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+                                <i class="fas fa-angle-right" style="color: var(--accent); font-size: 0.8rem; margin-right: 5px;"></i> Yönetici Paneli
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: #fff; margin-bottom: 20px; font-family: 'Urbanist', sans-serif;">Yasal Bilgiler</h4>
+                    <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+                        <i class="fas fa-file-contract" style="color: var(--accent); font-size: 1.2rem; margin-right: 15px; margin-top: 3px;"></i>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">
+                            Taşınmaz Ticareti Yetki Belgesi No: <br>
+                            <strong style="color: #fff;">4106601</strong>
+                        </p>
+                    </div>
+                    <div style="display: flex; align-items: flex-start;">
+                        <i class="fas fa-balance-scale" style="color: var(--accent); font-size: 1.2rem; margin-right: 15px; margin-top: 3px;"></i>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">
+                            Tüm hakları saklıdır <br>
+                            © 2026 Mirhan Emlak
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-bar">
+                Developed with <i class="fas fa-heart" style="color: #e74c3c;"></i> by 
+                <a href="https://www.linkedin.com/in/bünyamin-karan-a95284372/" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 600;">Bünyamin Karan</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
