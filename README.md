@@ -34,9 +34,6 @@ Performans Odaklı Görsel İşleme: İlan fotoğrafları için geliştirilen Ca
 
 Mülk Sat Formu: Kullanıcıların mülk bilgilerini iletebileceği, KVKK uyumlu veri toplama akışı.
 
-📷 Projeden Görseller
-
-
 👩‍💻 Geliştirici
 Bünyamin Karan
 
